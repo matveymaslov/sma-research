@@ -1,8 +1,10 @@
 # SMA Research
 
+**SMA — Self-Mending Automation.** *Make it work, prove it works, keep it working.*
+
 **English** · [Русский](README.ru.md)
 
-*Weekly field notes from building SMA, a personal orchestrator for AI agents. The code is closed; what is here are the ideas, the numbers, the failures and the directions worth your attention. Not a recipe of our code — a map of the road.*
+*Weekly field notes from building SMA (Self-Mending Automation), a personal orchestrator for AI agents. The code is closed; what is here are the ideas, the numbers, the failures and the directions worth your attention. Not a recipe of our code — a map of the road.*
 
 Our thesis: everyone is waiting for models that improve themselves. That is still the kryptonite nobody has cracked. We stopped waiting — we make the **process around the model** improve itself, and prove every step of it.
 

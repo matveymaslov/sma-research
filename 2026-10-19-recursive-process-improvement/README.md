@@ -2,7 +2,7 @@
 
 **English** · [Русский](README.ru.md)
 
-*Our vision of recursive improvement of the **process** around an AI agent (not of the model), the building blocks we have built for it, and the ones we are closing now. Not a recipe of our code — the road anyone who builds this seriously will have to walk. This text shows where to point your effort; it does not hand over how we do it. Written from building SMA, a personal orchestrator for AI agents (closed source; only the ideas are here).*
+*Our vision of recursive improvement of the **process** around an AI agent (not of the model), the building blocks we have built for it, and the ones we are closing now. Not a recipe of our code — the road anyone who builds this seriously will have to walk. This text shows where to point your effort; it does not hand over how we do it. Written from building SMA — Self-Mending Automation, a personal orchestrator for AI agents (closed source; only the ideas are here).*
 
 > **We do not try to make the model improve itself. We make the process around the model improve itself — its gates, its memory, its decision boundary — on real work, under proof. That loop is closing now.**
 
