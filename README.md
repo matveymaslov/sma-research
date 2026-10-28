@@ -12,6 +12,7 @@ Our thesis: we do not try to make the model improve itself. We make the **proces
 
 | Week | Issue | In one line |
 |---|---|---|
+| 2026-10-28 | [What goes into an agent's always-loaded memory](2026-10-28-what-goes-into-the-memory-core/README.md) | Five formulas lost to the hand-kept order; both exams lied first |
 | 2026-10-19 | [Recursive improvement of the process, not of the model](2026-10-19-recursive-process-improvement/README.md) | The road that improves itself, and the blocks that make it safe |
 | earlier | [Work graphs: how to make AI agents autonomous without losing control](https://github.com/matveymaslov/agent-work-graphs) | Six weeks of building work graphs, with the pain and the numbers |
 
