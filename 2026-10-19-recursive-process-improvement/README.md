@@ -26,6 +26,8 @@ We work on the process around the model, on one problem inside it: **real work, 
 6. What cannot be proven, or is the owner's to decide, comes to him in the morning as a short list.
 7. The harness that wakes up tomorrow is stricter than the one that went to sleep.
 
+![We improve the process around the model, not the model: the loop as we see it, from a wall to a stricter harness](fig1-the-loop.png)
+
 Our horizon: **a personal orchestrator that turns half a word into finished work and gets stricter every night.**
 
 **Where we are, honestly.** The blocks that make this loop safe are built. The harvesting of lessons and the night cycle with a quota guard run today. Closing the loop itself — walls turning into tasks the fleet works, and the harness hardening itself — is what we are closing now. We do not claim the loop is closed, and we have not yet measured a before/after result (see the section on what we have not shown).
@@ -243,6 +245,8 @@ The key line: **about 93% of the API-equivalent cost is operations on input cont
 paid for in context. Every needless re-run, every check group that walks the work from zero again, every failed attempt
 costs more than the amount of code suggests.
 
+![Long autonomous work is paid for in context: about 93 % of the cost is input, 7 % is output](fig2-paid-in-context.png)
+
 **The numbers behind it, so you can recompute them** (32 days; published API prices of 2026-09-25, per million tokens):
 
 | Model | What is counted | Count | Rate | Rate date |
@@ -287,6 +291,8 @@ orchestrator working on real tasks — so they are not directly comparable.
 
 The strict round is **17 check groups**. Group 1 is offline (no live agent). Groups 2–17, sixteen of them, run with a real agent as the separate operating-system user. Every stage group exercises **pause, force, stop and a correction at its boundary**. The round ran on **four successive code versions over about 30 hours**. On the final code version **all 17 groups were re-run in full**; no group was carried over from an earlier version.
 
+![Strict round: 17 of 17 check groups green on the final code version; six of them caught a defect first](fig3-strict-round.png)
+
 | # | Check group | What it proves | Defect it caught this weekend | Result |
 |---|---|---|---|---|
 | 1 | Offline command group | The command surface holds with no live agent | — | Green |
@@ -324,6 +330,8 @@ A real case, with the boundary of autonomy marked at every step: ✅ automatic t
 | 5 | The offline suites proved the change | ✅ |
 | 6 | A live re-run, launched by a human, proved it: the unit went green | 👤 |
 | 7 | Acceptance | 👤 |
+
+![One real fix, end to end: four of seven steps are automatic today; closing the loop is the other three](fig4-one-fix-end-to-end.png)
 
 **What closing the loop means.** The 👤 steps become ✅: naming the class, launching the live re-run, accepting the change. They do so under the policy distilled from the owner's own decisions (block 5), and only for the kinds of change that policy allows without him. Whatever it does not allow keeps arriving in his morning list.
 
