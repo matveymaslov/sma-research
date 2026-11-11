@@ -2,7 +2,7 @@
 
 **English** · [Русский](README.ru.md)
 
-*Our vision of recursive improvement of the **process** around an AI agent (not of the model), the building blocks we have built for it, and the ones we are closing now. Not a recipe of our code — the road anyone who builds this seriously will have to walk. This text shows where to point your effort; it does not hand over how we do it. Written from building SMA — Self-Mending Automation, a personal orchestrator for AI agents (closed source; only the ideas are here).*
+*Our vision of recursive improvement of the **process** around an AI agent (not of the model), the building blocks we have built for it, and the ones we are finishing now. Not a recipe from our code — the road anyone who builds this seriously will have to walk. This text shows where to point your effort; it does not hand over how we do it. Drawn from building SMA — Self-Mending Automation, a personal orchestrator for AI agents (closed source; only the ideas are here).*
 
 > **We do not try to make the model improve itself. We make the process around the model improve itself — its gates, its memory, its decision boundary — on real work, under proof. That loop is closing now.**
 
@@ -12,17 +12,17 @@
 
 ## The idea in one page
 
-"Self-improving agent" can mean several things: the model's weights get better; a prompt rewrites itself; an agent edits its own scaffold and keeps what scores higher (the work below does the last). Improving the model itself is a research frontier we do not claim and do not chase.
+"Self-improving agent" can mean several things: the model's weights get better; a prompt rewrites itself; an agent edits its own scaffold and keeps what scores higher (the work below does the last of these). Improving the model itself is a research frontier we do not claim and do not chase.
 
 We work on the process around the model, on one problem inside it: **real work, where there is no fixed benchmark to score against.** There, a number going up is not enough on its own to accept a change. The change also has to be proven, has to be undoable, and has to fit what the owner's own judgment allows.
 
 **What we improve recursively is the process around the model.** We call it the road, or the harness: its gates, its memory, its judgment of what may be decided. The loop as we see it, in plain words:
 
 1. The fleet hits a wall.
-2. The wall becomes a lesson and a task, by itself.
-3. The fleet works the task: at night, inside a ceiling on the quota.
+2. The wall becomes a lesson and a task, automatically.
+3. The fleet works on the task overnight, under a quota ceiling.
 4. The change is proven live, not self-reported.
-5. A policy distilled from the owner's own decisions, examined against his real past choices, decides what may go in.
+5. A policy distilled from the owner's own decisions and tested against his real past choices decides what may go in.
 6. What cannot be proven, or is the owner's to decide, comes to him in the morning as a short list.
 7. The harness that wakes up tomorrow is stricter than the one that went to sleep.
 
@@ -30,13 +30,13 @@ We work on the process around the model, on one problem inside it: **real work, 
 
 Our horizon: **a personal orchestrator that turns half a word into finished work and gets stricter every night.**
 
-**Where we are, honestly.** The blocks that make this loop safe are built. The harvesting of lessons and the night cycle with a quota guard run today. Closing the loop itself — walls turning into tasks the fleet works, and the harness hardening itself — is what we are closing now. We do not claim the loop is closed, and we have not yet measured a before/after result (see the section on what we have not shown).
+**Where we are, honestly.** The blocks that make this loop safe are built. Lesson harvesting and the night cycle with a quota guard run today. Closing the loop itself — walls turning into tasks the fleet works on, and the harness hardening itself — is what we are working on now. We do not claim the loop is closed, and we have not yet measured a before/after result (see the section on what we have not shown).
 
 ---
 
 ## Prior work and what we add
 
-We did not invent self-improving agents. These are the closest published relatives we know of (the list is not claimed to be complete), plus an older lineage that is closer than it looks.
+We did not invent self-improving agents. These are the closest published relatives we know of (we do not claim the list is complete), plus an older lineage that is closer than it looks.
 
 | Work | What it does | What it reports |
 |---|---|---|
@@ -47,10 +47,10 @@ We did not invent self-improving agents. These are the closest published relativ
 
 **What we add, without superlatives.** Those systems improve against a fixed benchmark score. Ours improves the process of a personal orchestrator on real work, where no fixed benchmark exists. For real work, one aggregate score is not enough. Acceptance weighs whether the original failure is gone, whether the system's mandatory properties still hold, whether the owner's authority allows the change, and whether it can be rolled back. In our setup that weighing rests on four things:
 
-- **(a)** an improver that cannot accept its own change, enforced by operating-system rights;
+- **(a)** an improver that cannot accept its own change, enforced by operating-system permissions;
 - **(b)** live proof files, one per required scenario;
-- **(c)** a policy distilled from the owner's own decisions and examined on his past choices, which says what may be decided without him;
-- **(d)** deferrals that turn red on the owner's term.
+- **(c)** a policy distilled from the owner's own decisions and tested against his past choices, which says what may be decided without him;
+- **(d)** deferrals that turn red on the owner's deadline.
 
 And what improves is not only prompts and tools but **gates, memory delivery and the decision boundary**.
 
@@ -62,7 +62,7 @@ And what improves is not only prompts and tools but **gates, memory delivery and
 
 | Word | Meaning here |
 |---|---|
-| **Road** (also: process, harness) | Everything around the model that lets it work without you: launch, rights, checks, memory, judgment. |
+| **Road** (also: process, harness) | Everything around the model that lets it work without you: launch, permissions, checks, memory, judgment. |
 | **Orchestrator** | The long-lived program that hands out tasks, starts workers and keeps the record. |
 | **Worker** | The process in which an agent actually runs commands and edits files. |
 | **Fleet** | All the workers and side processes the orchestrator runs. |
@@ -82,7 +82,7 @@ Each block below exists because the loop cannot be trusted without it. Take one 
 | 2 | A release is a proof file, not a test run | …has no judge it cannot talk into green | Built |
 | 3 | Deferrals with the owner's words and a date that turns red | …quietly postpones what it cannot fix | Built |
 | 4 | Memory you can prove | …writes lessons that never reach the next worker, and so improves nothing | Write path and per-path measurement built; the scale evaluation is next |
-| 5 | A clone of the owner's judgment, examined before it may decide | …does not know what it may decide | Built; the exam exists |
+| 5 | A clone of the owner's judgment, tested before it may decide | …does not know what it may decide | Built; the exam exists |
 | 6 | The road gets smarter, not the model | …is not a loop | Lesson harvest and night runs with a quota guard run today; the closed loop is closing now |
 | 7 | Our economics: the numbers | …cannot pay for its own proof | Measured; the numbers are below |
 
@@ -94,11 +94,11 @@ Each block below exists because the loop cannot be trusted without it. Take one 
 
 **Why it is hard.** A sentence in the prompt costs a minute. Isolation by the operating system costs weeks. And the hardest part is not the worker: it is everything the orchestrator starts *on the worker's behalf*, where the isolated road is easiest to forget.
 
-**In principle.** Rights are not promised, they are *read*: from the file system itself, group by group, and never from our own record of what we granted.
+**In principle.** Permissions are not promised; they are *read*: from the file system itself, group by group, and never from our own record of what we granted.
 
 **Independence of acceptance.** The candidate being checked cannot change the judge, the mandatory checks or the original evidence. The worker runs as a separate operating-system user with read-only access to the code the gates run from; the reviewer's input is verified unchanged after the review; and a change to the judge itself goes through the same landing and the owner's acceptance as any other change.
 
-**What it changed for us.** 17 of 17 check groups are green, and the 16 that need an agent ran with a real worker as a separate user (the table is below), after about seven isolation holes, found and fixed in one evening and night. The class that hurt most was the side processes: some failed outright, and some ran the candidate's code with the owner's rights. And our own record of grants said one thing while the file system said another.
+**What it changed for us.** 17 of 17 check groups are green, and the 16 that need an agent ran with a real worker as a separate user (the table is below), after about seven isolation holes were found and fixed over one evening and night. The class that hurt most was the side processes: some failed outright, and some ran the candidate's code with the owner's permissions. And our own record of grants said one thing while the file system said another.
 
 **Next.** Hand the fleet a whole backlog instead of one task. That is what block 6 needs.
 
@@ -124,10 +124,10 @@ Each block below exists because the loop cannot be trusted without it. Take one 
 | The code version | The exact version the evidence was produced on |
 | The run conditions | Who ran it, under which isolation, with which account and model, and when |
 | The required checks | Each required check, its result, and where its evidence lies |
-| What was not run | And why — with the owner's term if it was deferred |
+| What was not run | And why — with the owner's deadline if it was deferred |
 | The admission decision | What was decided, and who decided it |
 
-**What it changed for us.** We lost a week to a judge that used a vocabulary the judged agent was never given: honest agents kept doing the "wrong" thing, while we waited hours for live runs to tell us what a plain question to the judge could have answered at once. In one weekend, about a dozen defects turned up that only live runs could find, and the first live run of every path that had never run live found a new one. A suite of about 14,000 tests, 2.5–3 hours per run, is the floor of proof, not the proof.
+**What it changed for us.** We lost a week to a judge that used a vocabulary the judged agent was never given: honest agents kept doing the "wrong" thing, while we waited hours for live runs to tell us what a plain question to the judge could have answered at once. In one weekend, about a dozen defects turned up that only live runs could find, and the first live run of every path that had never run live found a new one. A suite of about 14,000 tests, 2.5–3 hours per run, is the floor, not the proof.
 
 **Next.** The same judge becomes the gatekeeper for the loop's own changes (block 6).
 
@@ -140,18 +140,18 @@ Each block below exists because the loop cannot be trusted without it. Take one 
 
 ## 3. Deferrals with the owner's own words and a date that turns red by itself
 
-**The idea.** No mandatory check is postponed without the owner's agreement in his own words and a date. When the date passes, the red turns on by itself: for the checks and for the release. Only the human sets the term of a deferred mandatory check; an agent can never set one, and never extend one. (The agents' own internal planning stays free. The rule is about mandatory checks, not about every note to self.)
+**The idea.** No mandatory check is postponed without the owner's agreement in his own words and a date. When the date passes, everything turns red by itself: the checks and the release. Only the human sets the deadline of a deferred mandatory check; an agent can never set one or extend one. (The agents' own internal planning stays free. The rule is about mandatory checks, not about every note to self.)
 
-**Why it is hard.** "Fix it later" costs nothing today, and a register is a chore. If the agent may write the date, deferring becomes free, and every deferral looks managed.
+**Why it is hard.** "Fix it later" costs nothing today, and a register is a chore. If the agent can write the date, deferring becomes free, and every deferral looks managed.
 
 **In principle.** One place for all postponements, a date that only a human can write, and an expiry that is mechanical, not a reminder.
 
-**What it changed for us.** The register caught five scenes that all of us had forgotten. It also taught us a hard lesson: we said aloud "this closes on Sunday" without reading it, and Sunday became two to three more days. Every date promise now starts with the register.
+**What it changed for us.** The register caught five scenes that all of us had forgotten. It also taught us a hard lesson: we said aloud "this closes on Sunday" without checking the register, and Sunday became two to three more days. Every date promise now starts with the register.
 
-**Next.** A self-improving fleet will meet walls it cannot fix tonight. Those must come back on a date a human gave, not vanish into a backlog.
+**Next.** A self-improving fleet will hit walls it cannot fix tonight. Those must come back on a date a human set, not vanish into a backlog.
 
 **Ask yourself.**
-- In how many places do postponements live in your house?
+- In how many places do postponements live in your team?
 - Who may write a date, and what happens, mechanically, on the day it passes?
 - When your loop cannot fix a wall, where does the wall go?
 
@@ -165,9 +165,9 @@ Each block below exists because the loop cannot be trusted without it. Take one 
 
 **In principle.** Every lesson enters through one door that scrubs secrets before anything is saved. Every way a lesson can reach a worker is measured separately, with the real inputs, never with stand-ins.
 
-**What it changed for us.** One delivery path carried **zero** lessons for three months, and we did not notice, because we had measured only another path. Measuring each path separately is what exposed it. We also found that, at the size of one person's project corpus, plain retrieval you can explain beat clever retrieval you cannot. And whenever the owner has to repeat something that was already in memory, we count it as a question the memory failed.
+**What it changed for us.** One delivery path carried **zero** lessons for three months, and we did not notice, because we had only measured a different path. Measuring each path separately is what exposed it. We also found that, at the size of one person's project corpus, plain retrieval you can explain beat clever retrieval you cannot. And whenever the owner has to repeat something that was already in memory, we count it as a question the memory failed.
 
-**Next.** The evaluation on negative cases (questions whose right answer is "nothing relevant") at 30, 300 and 3,000 notes, and a contradiction register in which two notes that disagree are held, with a term, until a human settles it.
+**Next.** The evaluation on negative cases (questions whose right answer is "nothing relevant") at 30, 300 and 3,000 notes, and a contradiction register in which two notes that disagree are held, with a deadline, until a human settles it.
 
 **Ask yourself.**
 - Can you prove, for a lesson written today, that it reaches the prompt of tomorrow's worker?
@@ -176,15 +176,15 @@ Each block below exists because the loop cannot be trusted without it. Take one 
 
 ---
 
-## 5. A clone of the owner's judgment, examined before it may decide
+## 5. A clone of the owner's judgment, tested before it may decide
 
-**The idea.** The orchestrator's policy is distilled from the owner's own decisions, and nothing in it is invented. It is then examined against choices the owner really made. Only a policy that passes may decide for him. And the list of decisions that are his alone can only grow, never shrink.
+**The idea.** The orchestrator's policy is distilled from the owner's own decisions, and nothing in it is invented. It is then tested against choices the owner really made. Only a policy that passes may decide for him. And the list of decisions that are his alone can only grow, never shrink.
 
 **Why it is hard.** A learned preference is easy to state and hard to test. A paragraph of rules sounds right whether or not it is right. And it is tempting to let the "humans only" list shrink whenever the fleet feels confident.
 
 **In principle.** Trust in a stand-in for a person is earned against that person's record, not against the stand-in's fluency. The exam can fail, and what fails does not decide.
 
-**How the exam stands.** The exam uses held-out historical situations: the policy sees a situation without the owner's real decision, and its answer is scored against what he actually decided. The decisions the policy was distilled from are kept apart from the exam items.
+**How the exam is set up.** The exam uses held-out historical situations: the policy sees a situation without the owner's real decision, and its answer is scored against what he actually decided. The decisions the policy was distilled from are kept apart from the exam items.
 
 **What it changed for us.** The loop got a line it did not have before: what the fleet may settle at night, and what waits in the morning as a short list. The policy and its exam are built, and the policy is re-distilled as the record grows.
 
@@ -205,11 +205,11 @@ Each block below exists because the loop cannot be trusted without it. Take one 
 
 **In principle.** Every class of failure leaves behind something that refuses it: a gate, a hook, a register. Every lesson goes through one door.
 
-**What it changed for us.** Every rule that stayed text was eventually broken, by us as well as by agents. A lesson about a dangerous removal lived in a note *and* in the instructions, and the removal happened twice anyway. After a hook closed the action, it did not come back.
+**What it changed for us.** Every rule that stayed as text was eventually broken, by us as well as by agents. A lesson about a dangerous deletion lived in a note *and* in the instructions, and the deletion happened twice anyway. Once a hook blocked the action, it did not happen again.
 
 **Runs today.** Lessons are harvested from every accepted job. Night runs drive themselves: alarms wake them, watchers follow them, and a quota guard stops the series before the account runs out.
 
-**Closing now.** The loop itself. A wall found by a worker files its own task. The night cycle works the backlog inside a quota ceiling. A question for the human leaves with a timer on it. The change goes through the proof of block 2 and the policy of block 5. That is recursive improvement of the process itself, not of the model.
+**Closing now.** The loop itself. A wall found by a worker files its own task. The night cycle works through the backlog under a quota ceiling. A question for the human goes out with a timer on it. The change goes through the proof of block 2 and the policy of block 5. That is recursive improvement of the process itself, not of the model.
 
 **Ask yourself.**
 - When your agent hits a wall tonight, what remains tomorrow besides a note?
@@ -224,36 +224,36 @@ Each block below exists because the loop cannot be trusted without it. Take one 
 
 **Why it is hard.** Proof is the part of the work that is hardest to schedule: it ends when the walls run out, not when the code does.
 
-**The scale.** SMA has been built for about six months; it grew inside an earlier platform before it became its own product. The month we can measure exactly is about **20 billion tokens and about $9,400** at API-equivalent prices. At that pace the whole project comes to the order of **100+ billion tokens and about $50,000 API-equivalent**. That is the price we paid. It is an estimate by pace, not a count: the tool deletes conversation transcripts after 30 days, so only the last month can be counted exactly.
+**The scale.** We have been building SMA for about six months; it grew inside an earlier platform before it became its own product. The month we can measure exactly is about **20 billion tokens and about $9,400** at API-equivalent prices. At that pace the whole project comes to something on the order of **100+ billion tokens and about $50,000 API-equivalent**. That is the price we paid. It is an estimate from the pace, not a count: the tool deletes conversation transcripts after 30 days, so only the last month can be counted exactly.
 
-**Money and tokens over the last 32 days (17.09–19.10).** We run on subscriptions, not on an API bill. So the figures
-below are the **API equivalent**: every model answer in the transcripts (the developer's terminal, its executor agents,
+**Money and tokens over the last 32 days (17 September – 19 October).** We run on subscriptions, not on an API bill. So the figures
+below are the **API equivalent**: every model response in the transcripts (the developer's terminal, its executor agents,
 the fleet and stand workers) counted once by its tokens and priced at the published API rates. The tool deletes
 transcripts older than a month, so only this last month can be counted exactly.
 
 | | Over 32 days |
 |---|---|
-| Model answers | **88,756** |
+| Model responses | **88,756** |
 | API equivalent | **≈ $9,370**, about **$290 a day** |
-| — developer's terminal and its agents | ≈ $6,320 (47k answers) |
-| — fleet and stand workers (live scenes) | ≈ $3,040 (42k answers) |
+| — developer's terminal and its agents | ≈ $6,320 (47k responses) |
+| — fleet and stand workers (live scenes) | ≈ $3,040 (42k responses) |
 | Written by the model (output tokens) | 30.5M tokens — **7%** of the cost |
 | Context read again (cache reads) | 19.3B tokens — **47%** of the cost |
 | Context written to cache | 0.74B tokens — **46%** of the cost |
 
 The key line: **about 93% of the API-equivalent cost is operations on input context: 47% reading cached context, 46% writing context to the cache. Output tokens are about 7%.** Long autonomous work is
 paid for in context. Every needless re-run, every check group that walks the work from zero again, every failed attempt
-costs more than the amount of code suggests.
+costs more than the amount of code would suggest.
 
-![Long autonomous work is paid for in context: about 93 % of the cost is input, 7 % is output](fig2-paid-in-context.png)
+![Long autonomous work is paid for in context: about 93% of the cost is input, 7% is output](fig2-paid-in-context.png)
 
 **The numbers behind it, so you can recompute them** (32 days; published API prices of 2026-09-25, per million tokens):
 
 | Model | What is counted | Count | Rate | Rate date |
 |---|---|---|---|---|
-| claude-opus-5-5 | answers · cost | 80,243 · ≈ $7,840 | $4 in · $20 out · $0.20 cache read | 2026-09-25 |
-| claude-opus-5 | answers · cost | 7,551 · ≈ $1,273 | $5 in · $25 out · $0.50 cache read | 2026-09-25 |
-| claude-opus-4-8 | answers · cost | 376 · ≈ $186 | $5 in · $25 out · $0.50 cache read | 2026-09-25 |
+| claude-opus-5-5 | responses · cost | 80,243 · ≈ $7,840 | $4 in · $20 out · $0.20 cache read | 2026-09-25 |
+| claude-opus-5 | responses · cost | 7,551 · ≈ $1,273 | $5 in · $25 out · $0.50 cache read | 2026-09-25 |
+| claude-opus-4-8 | responses · cost | 376 · ≈ $186 | $5 in · $25 out · $0.50 cache read | 2026-09-25 |
 | other models | cost | under $30 each | — | — |
 | all models | output tokens | 30.5M | the "out" rate above | 2026-09-25 |
 | all models | cache reads | 19.31B | the "cache read" rate above | 2026-09-25 |
@@ -271,10 +271,10 @@ orchestrator working on real tasks — so they are not directly comparable.
 
 | | What happened |
 |---|---|
-| A strict worker round: the worker, and every side process started for it, runs as a separate operating-system user | **17 of 17** check groups green at the end (16 of them with a real agent). Getting there took about **seven isolation holes**, found and fixed in one evening and night |
+| A strict worker round: the worker, and every side process started for it, runs as a separate operating-system user | **17 of 17** check groups green at the end (16 of them with a real agent). Getting there meant finding and fixing about **seven isolation holes** in one evening and night |
 | One weekend of live runs | About **a dozen defects** that no other kind of check had found. Every first live run of a path that had never run live found a new one |
 | The full test suite | About **14,000 tests**, **2.5–3 hours** per run. Every re-run is a decision, not a reflex |
-| A date promised aloud: "this closes on Sunday" | **2–3 more days.** Five deferred scenes under an expired term had not been read before the promise was made |
+| A date promised aloud: "this closes on Sunday" | **2–3 more days.** Five deferred scenes past their deadline had not been checked before the promise was made |
 | The judge and the unstated vocabulary | **A week** lost to a judge whose words the judged agent was never given |
 | The quota | Night runs and the operator's own terminal sat on one shared allowance. When it ran out, **everything** on it stopped, the terminal included |
 
@@ -331,7 +331,7 @@ A real case, with the boundary of autonomy marked at every step: ✅ automatic t
 | 6 | A live re-run, launched by a human, proved it: the unit went green | 👤 |
 | 7 | Acceptance | 👤 |
 
-![One real fix, end to end: four of seven steps are automatic today; closing the loop is the other three](fig4-one-fix-end-to-end.png)
+![One real fix, end to end: four of seven steps are automatic today; closing the loop is about the other three](fig4-one-fix-end-to-end.png)
 
 **What closing the loop means.** The 👤 steps become ✅: naming the class, launching the live re-run, accepting the change. They do so under the policy distilled from the owner's own decisions (block 5), and only for the kinds of change that policy allows without him. Whatever it does not allow keeps arriving in his morning list.
 
@@ -349,9 +349,9 @@ What we will run is a three-arm experiment on identical tasks, with the same mod
 | **B** | SMA with the harness frozen |
 | **C** | The same starting SMA, allowed to run improvement cycles |
 
-**B against A** is the value of the harness. **C against B** is the value of self-improvement. C's budget includes the cost of preparing and proving its changes, and the evaluation tasks must never be used to drive those changes.
+**B vs. A** measures the value of the harness. **C vs. B** measures the value of self-improvement. C's budget includes the cost of preparing and proving its changes, and the evaluation tasks must never be used to drive those changes.
 
-Our nearest experiment answers the first question: **B against A first, then C against B.** In every arm we will count:
+Our next experiment answers the first question: **B vs. A first, then C vs. B.** In every arm we will count:
 
 | Measure | Why |
 |---|---|
@@ -366,11 +366,11 @@ Whatever the numbers say is the answer, including "not worth it for tasks like t
 
 ## Where we are, and where this goes
 
-**Built.** The separation of duties, proved by operating-system rights (17 of 17 check groups, 16 of them with a real agent). The release as a proof file. The register of deferrals. The memory write path and the per-path measurement of arrival. The policy distilled from the owner's decisions, and the exam it sits.
+**Built.** The separation of duties, enforced by operating-system permissions (17 of 17 check groups green, 16 of them with a real agent). The release as a proof file. The register of deferrals. The memory write path and the per-path measurement of delivery. The policy distilled from the owner's decisions, and the exam it sits.
 
 **Running today.** Lesson harvest from every accepted job. Night runs that drive themselves, with alarms, watchers and a quota guard.
 
-**Closing now.** Walls turning into tasks that the fleet works at night under a quota ceiling, passing through the proof and the policy. The memory evaluation at 30, 300 and 3,000 notes.
+**Closing now.** Walls turning into tasks that the fleet works on overnight under a quota ceiling, passing through the proof and the policy. The memory evaluation at 30, 300 and 3,000 notes.
 
 **Not yet shown.** A before/after measurement.
 
@@ -382,11 +382,11 @@ Whatever the numbers say is the answer, including "not worth it for tasks like t
 
 *A scene, not a forecast. Everything in it follows from the loop above.*
 
-**07:40.** A kitchen. The owner stands with a coffee and says half a sentence into his phone: "The booking page, for the second location too, same as the first." That is all. The orchestrator asks nothing it can answer from his own record: what he would choose, it already knows. It asks one thing it is not allowed to decide for him, and he answers it with a thumb.
+**07:40.** A kitchen. The owner stands with a coffee and says half a sentence into his phone: "The booking page, for the second location too, same as the first." That is all. The orchestrator asks nothing it can answer from his own record: what he would choose, it already knows. It asks one thing it is not allowed to decide for him, and he answers it with a tap of his thumb.
 
 **09:00 to 18:00.** He goes to work. The fleet does not stop. By evening a finished product is on his screen, and next to every "done" lies a receipt that someone else can re-run. He picks one at random and presses it. It goes green. Nobody asked him to trust anything.
 
-**03:10.** The house is dark, and the fleet runs into its own walls. A worker's note trips a guard. The wall becomes a task. A fixing agent changes the guard, sweeps the whole class of the failure, and the change is proven live. Only then does it go in, because the policy distilled from the owner's own choices says that this kind of change may. A change to the judge itself is another kind. It waits for him.
+**03:10.** The house is dark, and the fleet runs into its own walls. A worker's note trips a guard. The wall becomes a task. A fixing agent changes the guard, sweeps the whole class of the failure, and the change is proven live. Only then does it go in, because the policy distilled from the owner's own choices says that this kind of change may go in. A change to the judge itself is another kind. It waits for him.
 
 **06:50.** Three lines on the phone. Two decisions only he can make. One thing that went wrong in the night, already red, its evidence kept. Nothing else. He finishes the coffee.
 
@@ -398,29 +398,29 @@ Science fiction has long promised an assistant that answers before you finish th
 
 ---
 
-## Supporting material: thirteen walls every harness meets
+## Supporting material: thirteen walls every harness runs into
 
-Smaller walls we met on the way, shortened to a principle and questions. Where a wall is already covered above, it is only a pointer.
+Smaller walls we hit along the way, each reduced to a principle and questions. Where a wall is already covered above, there is only a pointer.
 
-**1. Everything the worker causes goes the same road.** Covered in block 1. One worker that runs as the owner and is not on the isolation list ends isolation for the whole house. *Ask: can a worker that is not on your list receive work, through a default or a fallback?*
+**1. Everything the worker causes travels the same road.** Covered in block 1. One worker that runs as the owner and is not on the isolation list ends isolation for the whole system. *Ask: can a worker that is not on your list receive work, through a default or a fallback?*
 
 **2. Judge the program that really runs.** Quoted text is data; text that a program executes is a command; an unknown program is never trusted with its quoted strings. A lesson that merely *mentioned* a dangerous command once opened a ticket for a human at night; nobody answered, and the pipeline died on a ten-minute timeout over a sentence in a note. *Ask: what does your classifier do with a harmless note about a dangerous command? What happens at 3 a.m. when the human does not answer?*
 
 **3. "Stopped" has two conditions.** A process that exited is not the same as work that came back. Wait for both, each bounded, and give the gap between them a name so that it is not mistaken for death. A stopped turn must never start a continuation. We saw a live attempt judged dead, never killed, and replaced every couple of minutes. *Ask: what must be true before your screen says "stopped"? Can the end of a stopped turn be mistaken for a normal end?*
 
-**4. Every job rolls back to the state before it.** Its own copy from a known base; the base and the changed files in the record, failed attempts included; deletions leave a trace of their own. At one point our record said a job *could* be rolled back, but not *to what*. *Ask: for your last failed job, can you name its base without opening the workspace?*
+**4. Every job can be rolled back to the state before it.** Its own copy from a known base; the base and the changed files in the record, failed attempts included; deletions leave a trace of their own. At one point our record said a job *could* be rolled back, but not *to what*. *Ask: for your last failed job, can you name its base without opening the workspace?*
 
 **5. Computed is not connected.** Every part written, tested and green, and the parts not wired to each other: a permission envelope computed and logged but never handed to the launched process; a worker chosen and never saved. *Ask: pick one value your harness computes. What fails if its reader disappears? Is a run over the whole route part of your "done"?*
 
-**6. Tests that do not lie.** A double may implement less of the real thing, but it must keep the real contract and fail loudly on any path it does not support. It must never do more than the real thing can, and it must never silently skip what the real thing always does. Our scripted worker lacked the first frame that the real agent always sends, and so walked a different branch. *Ask: when was each double last compared with the real thing? Which of your key checks have you seen go red on purpose?*
+**6. Tests that do not lie.** A double may implement less of the real thing, but it must keep the real contract and fail loudly on any path it does not support. It must never do more than the real thing can, and it must never silently skip what the real thing always does. Our scripted worker lacked the first frame that the real agent always sends, and so took a different branch. *Ask: when was each double last compared with the real thing? Which of your key checks have you seen go red on purpose?*
 
 **7. Judged by an unstated vocabulary.** Covered in block 2. *Ask: can your agent see every rule that can reject its work?*
 
-**8. Live proof over reading.** An interface is closed only by running it, and a run that did not happen is NOT RUN, never "no findings". An old screenshot path once swallowed its own error and graded a screen it never opened; a panel with no engine behind it shipped. After a fix, re-run narrowly only when the area of impact is known, and keep the other greens with a written reason. A change to shared infrastructure (launching, isolation, configuration, the judge, a shared library), or an impact nobody can bound, means re-running everything that goes through it. *Ask: who or what actually ran what you are about to hand over? Can you bound the impact of your last fix?*
+**8. Live proof over reading.** An interface is signed off only by running it, and a run that did not happen is NOT RUN, never "no findings". An old screenshot path once swallowed its own error and graded a screen it never opened; a panel with no engine behind it shipped. After a fix, re-run narrowly only when the area of impact is known, and keep the other greens with a written reason. A change to shared infrastructure (launching, isolation, configuration, the judge, a shared library), or an impact nobody can bound, means re-running everything that goes through it. *Ask: who or what actually ran what you are about to hand over? Can you bound the impact of your last fix?*
 
-**9. Deferred work needs a human-given term.** Covered in block 3.
+**9. Deferred work needs a human-set deadline.** Covered in block 3.
 
-**10. Text rules are not mechanisms.** Covered in block 6. Others in this class: a one-line environment edit once wrote an empty search path for a whole user account. *Ask: which of your rules are text only, and has anyone said so aloud?*
+**10. Text rules are not mechanisms.** Covered in block 6. Another in this class: a one-line environment edit once wrote an empty search path for a whole user account. *Ask: which of your rules are text only, and has anyone said so aloud?*
 
 **11. Memory is a pipeline, not a dump.** Covered in block 4.
 
@@ -440,7 +440,7 @@ Questions only. Every "I don't know" is a place where something can pass silentl
 4. If your improver changes a gate tonight, who proves the new gate is not weaker than the old one?
 5. Can your judge be talked into green?
 6. Does your loop know what it may decide, and who taught it?
-7. When the loop cannot fix a wall, where does the wall go, and does it come back on a date a human gave?
+7. When the loop cannot fix a wall, where does the wall go, and does it come back on a date a human set?
 8. Which lessons from last month exist as something other than a sentence?
 9. Can you prove that a lesson written today reaches tomorrow's worker?
 10. What does it honestly cost you to prove one change live?
@@ -451,7 +451,7 @@ Questions only. Every "I don't know" is a place where something can pass silentl
 
 > **These are the conditions we require before we let the loop change itself: the process, not the model, is what changes, and every change is proven, reversible and checked against the owner's own judgment. We have not shown that they are sufficient in general.**
 
-Where there is no benchmark to score against, one aggregate number is not enough for acceptance. It has to come from more places: from an improver that cannot accept its own change, from proof that someone else can re-run, from the owner's own record, and from dates that turn red by themselves. Our horizon is a personal orchestrator that turns half a word into finished work and gets stricter every night. The foundations are built, the loop is closing, and these are the questions we would point your own effort at.
+Where there is no benchmark to score against, one aggregate number is not enough for acceptance. Acceptance has to draw on more than that: on an improver that cannot accept its own change, on proof that someone else can re-run, on the owner's own record, and on dates that turn red by themselves. Our horizon is a personal orchestrator that turns half a word into finished work and gets stricter every night. The foundations are built, the loop is closing, and these are the questions we would point your own effort at.
 
 ---
 
