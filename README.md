@@ -1,39 +1,52 @@
-# SMA Research
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.png">
+  <img alt="SMA Research: field notes from building a self-mending orchestrator for AI agents" src="assets/banner-light.png" width="100%">
+</picture>
 
-**SMA — Self-Mending Automation.** *Make it work, prove it works, keep it working.*
+<p align="right"><sub><b>EN</b> &nbsp;·&nbsp; <a href="README.ru.md">RU</a></sub></p>
 
-**English** · [Русский](README.ru.md)
+Field notes from building **SMA (Self-Mending Automation)**, a personal orchestrator for AI agents. The code is closed. The ideas, the numbers and the failures are here: not a recipe of our code, but a map of the road.
 
-*Weekly field notes from building SMA (Self-Mending Automation), a personal orchestrator for AI agents. The code is closed; what is here are the ideas, the numbers, the failures and the directions worth your attention. Not a recipe of our code — a map of the road.*
+&nbsp;
 
-Our thesis: we do not try to make the model improve itself. We make the **process around the model** improve itself — the road, its gates, its memory, its judgment of what may be decided — and we prove every step of it.
+###### THE THESIS
 
-## Issues
+We don't try to make the model improve itself. We make the **process around the model** improve itself (the road, its gates, its memory, its judgment of what may be decided), and we prove every step of it.
 
-| Week | Issue | In one line |
-|---|---|---|
-| 2026-11-20 | [The model is the unreliable part](2026-11-20-the-model-is-the-unreliable-part/README.md) | Nine deterministic layers around a model that never will be: why it works on novel tasks, and what scale it opens |
-| 2026-11-16 | [Every hole in our agent's guards was the same bug](2026-11-16-guards-read-what-runs/README.md) | The guard read one command and the shell ran another: six weeks of bypasses, and the rule that ended them |
-| 2026-11-05 | [How far can an agent's memory search go?](2026-11-05-agent-memory-recall/README.md) | Vectors, a reranker and the road to 85–90 %: what worked, what did not, what is not proven |
-| 2026-10-28 | [What goes into an agent's always-loaded memory](2026-10-28-what-goes-into-the-memory-core/README.md) | Five formulas lost to the hand-kept order; both exams lied first |
-| 2026-10-19 | [Recursive improvement of the process, not of the model](2026-10-19-recursive-process-improvement/README.md) | The road that improves itself, and the blocks that make it safe |
-| earlier | [Work graphs: how to make AI agents autonomous without losing control](https://github.com/matveymaslov/agent-work-graphs) | Six weeks of building work graphs, with the pain and the numbers |
+&nbsp;
 
-## Findings about the tools we build on
+###### ISSUES
 
-We run Claude Code for weeks of autonomous work. When the tool itself surprises us, we write it down with a reproduction and report it upstream: [claude-code-findings](claude-code-findings/README.md).
+`2026.11.20` &nbsp; **[The model is the unreliable part](2026-11-20-the-model-is-the-unreliable-part/README.md)**<br>
+Nine deterministic layers around a model that never will be: why it works on novel tasks, and what scale it opens
 
-## How an issue is built
+`2026.11.16` &nbsp; **[Every hole in our agent's guards was the same bug](2026-11-16-guards-read-what-runs/README.md)**<br>
+The guard read one command and the shell ran another: six weeks of bypasses, and the rule that ended them
 
-Every week, one to two pages:
+`2026.11.05` &nbsp; **[How far can an agent's memory search go?](2026-11-05-agent-memory-recall/README.md)**<br>
+Vectors, a reranker and the road to 85–90 %: what worked, what did not, what is not proven
 
-1. **Built** — what we built and proved live this week.
-2. **Broke** — what broke, why, and the class it belongs to.
-3. **Numbers** — runs, holes found, the price of proof.
-4. **A direction** — one thing worth thinking about, with questions for you.
+`2026.10.28` &nbsp; **[What goes into an agent's always-loaded memory](2026-10-28-what-goes-into-the-memory-core/README.md)**<br>
+Five formulas lost to the hand-kept order; both exams lied first
 
-We guide; we do not hand over mechanisms.
+`2026.10.19` &nbsp; **[Recursive improvement of the process, not of the model](2026-10-19-recursive-process-improvement/README.md)**<br>
+The road that improves itself, and the blocks that make it safe
+
+`earlier` &nbsp; **[Work graphs: how to make AI agents autonomous without losing control](https://github.com/matveymaslov/agent-work-graphs)**<br>
+Six weeks of building work graphs, with the pain and the numbers
+
+&nbsp;
+
+###### HOW AN ISSUE IS BUILT
+
+One or two pages in four parts: **built**, what we built and proved live; **broke**, what broke and the class it belongs to; **numbers**, runs, holes found and the price of proof; **a direction**, one thing worth thinking about, with questions for you. We guide; we don't hand over mechanisms.
+
+###### THE TOOLS WE BUILD ON
+
+When Claude Code itself surprises us, we write it down with a reproduction and the workaround we use: [claude-code-findings](claude-code-findings/README.md).
+
+&nbsp;
 
 ---
 
-Text: [CC BY 4.0](LICENSE). Written by Matvey.
+<sub>Written by Matvey &nbsp;·&nbsp; Text [CC BY 4.0](LICENSE) &nbsp;·&nbsp; Ideas only, no code</sub>
