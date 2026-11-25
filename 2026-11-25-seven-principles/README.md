@@ -104,7 +104,7 @@ The command scrubs secrets before anything is saved, decides where the note belo
 node scripts/sma/cli.mjs memory miss --task "<what they asked>" --expected <note>
 ```
 
-We measure recall on real questions, sampled blind, with the labels frozen before the run. Today it is below our target, and we know that because we measure it instead of feeling it.
+We measure recall on real questions, sampled blind, with the labels frozen before the run.
 
 **Practice:** one write path with scrubbing, and a test case for every miss. A memory you don't measure is a rumour.
 
@@ -122,9 +122,6 @@ Follow one task through SMA. It goes into a queue. A worker takes it into its ow
 
 ## What we still can't prove
 
-![What we can't prove yet: memory recall is below target](fig4-memory-recall.png)
-
-- Memory recall on real questions is below target: 31 of 69 questions on one project and 35 of 60 on another, against 90 %.
 - The designer's taste loop hasn't yet been measured against the owner's own marks.
 - We haven't counted how often an unusual task is accepted on the first try.
 
