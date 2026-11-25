@@ -17,6 +17,9 @@ We don't try to make the model improve itself. We make the **process around the 
 
 ###### ISSUES
 
+`2026.11.25` &nbsp; **[Seven principles for an AI agent fleet you can actually trust](2026-11-25-seven-principles/README.md)**<br>
+The model decides how, and boring mechanisms decide whether: seven of them, each with a real example from this week
+
 `2026.11.20` &nbsp; **[The model is the unreliable part](2026-11-20-the-model-is-the-unreliable-part/README.md)**<br>
 Nine deterministic layers around a model that never will be: why it works on novel tasks, and what scale it opens
 
