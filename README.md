@@ -17,6 +17,9 @@ We don't try to make the model improve itself. We make the **process around the 
 
 ###### ISSUES
 
+`2026.11.27` &nbsp; **[My AI assistant reviews me every week](2026-11-27-out-of-the-loop/README.md)**<br>
+The slowest part of my setup was me: a weekly review with receipts, and the road to a closed loop
+
 `2026.11.25` &nbsp; **[Seven principles for an AI agent fleet you can actually trust](2026-11-25-seven-principles/README.md)**<br>
 The model decides how, and boring mechanisms decide whether: seven of them, each with a real example from this week
 
